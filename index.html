@@ -27,6 +27,12 @@
   header .inner{max-width:720px;margin:0 auto}
   header h1{margin:0;font-size:21px;font-weight:600;letter-spacing:.3px}
   header .sub{font-size:14.5px;opacity:.82;margin-top:5px}
+  header .chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+  header .chip{
+    font-size:13px;line-height:1.4;padding:4px 11px;border-radius:999px;
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);
+  }
+  header .chip.gold{background:var(--gold);border-color:var(--gold)}
 
   /* ---------- section ---------- */
   h2{
@@ -102,16 +108,6 @@
   .info .k{flex:0 0 auto;min-width:64px;font-size:15px;font-weight:600;color:var(--navy)}
   .info .v{font-size:15.5px;color:#3a4c56}
 
-  /* ---------- links ---------- */
-  .links{display:grid;gap:10px;margin-top:8px}
-  .links a{
-    display:block;text-align:center;text-decoration:none;
-    font-size:16px;font-weight:600;color:var(--navy);
-    background:#fff;border:1px solid var(--line);border-radius:12px;
-    padding:15px 14px;
-  }
-  .links a.primary{background:var(--navy);color:#fff;border-color:var(--navy)}
-
   footer{
     font-size:13.5px;color:var(--muted);line-height:1.7;
     margin-top:28px;padding-top:16px;border-top:1px solid var(--line);
@@ -130,6 +126,12 @@
   <div class="inner">
     <h1>2026 Switzerland 双人行</h1>
     <div class="sub">9/28（周一）— 10/8（周四）｜10 晚 · 8 次入住</div>
+    <div class="chips">
+      <span class="chip">高山徒步</span>
+      <span class="chip">设计建筑</span>
+      <span class="chip">湖山铁路</span>
+      <span class="chip gold">北京 — 日内瓦 往返</span>
+    </div>
   </div>
 </header>
 
@@ -350,13 +352,6 @@
     <div class="row"><span class="k">10/5</span><span class="v">Zurich Marriott Hotel · Zürich</span></div>
     <div class="row"><span class="k">10/6</span><span class="v">Basel Marriott Hotel · Basel</span></div>
     <div class="row"><span class="k">10/7</span><span class="v">Geneva Marriott Hotel · Genève</span></div>
-  </div>
-
-  <h2>相关文件</h2>
-  <div class="links">
-    <a class="primary" href="%E7%91%9E%E5%A3%AB%E5%9B%BD%E5%BA%86%E8%A1%8C%E7%A8%8B_2026_%E7%AB%96%E7%89%88.html" target="_blank" rel="noopener">竖版行程（打印用）</a>
-    <a href="%E7%91%9E%E5%A3%AB%E5%9B%BD%E5%BA%86%E8%A1%8C%E7%A8%8B_2026.pdf" target="_blank" rel="noopener">PDF</a>
-    <a href="https://github.com/J-An-dev/swiss-2026/blob/main/%E7%91%9E%E5%A3%AB%E5%9B%BD%E5%BA%86%E8%A1%8C%E7%A8%8B_2026_%E8%A1%A8%E6%A0%BC%E7%89%88.md" target="_blank" rel="noopener">表格版（Markdown）</a>
   </div>
 
   <footer>
