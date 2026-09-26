@@ -36,8 +36,11 @@
 
   /* ---------- date quick-nav ---------- */
   .daynav{
-    display:flex;gap:8px;overflow-x:auto;padding:4px 0 12px;
-    scrollbar-width:none;-webkit-overflow-scrolling:touch;
+    position:sticky;top:0;z-index:15;
+    display:flex;gap:8px;overflow-x:auto;
+    padding:10px 0;margin:0 0 4px;
+    background:#eef3f5;box-shadow:0 4px 8px -6px rgba(20,59,87,.28);
+    scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-behavior:smooth;
   }
   .daynav::-webkit-scrollbar{display:none}
   .daynav a{
@@ -45,18 +48,20 @@
     font-size:14.5px;font-weight:600;color:var(--navy);
     background:#fff;border:1px solid var(--line);border-radius:999px;
     padding:6px 13px;line-height:1.4;white-space:nowrap;
+    transition:background .18s,color .18s,border-color .18s;
   }
   .daynav a:active{background:var(--pale)}
   .daynav a .n{color:var(--gold);font-weight:700;margin-right:4px}
+  .daynav a.active{background:var(--navy);border-color:var(--navy);color:#fff}
+  .daynav a.active .n{color:#fff}
 
   /* ---------- day card ---------- */
   .day{
     background:#fff;border:1px solid var(--line);border-radius:14px;
     padding:16px 16px 6px;margin-bottom:16px;
     box-shadow:0 1px 4px rgba(20,59,87,.05);
-    scroll-margin-top:12px;
+    scroll-margin-top:64px;
   }
-  .day.head-line{border-color:var(--gold);border-width:2px}
   .day:target{border-color:var(--gold);box-shadow:0 0 0 3px rgba(177,123,38,.18)}
   .day-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
   .dnum{
@@ -344,7 +349,7 @@
   </article>
 
   <!-- D11 -->
-  <article class="day head-line" id="d11">
+  <article class="day" id="d11">
     <div class="day-head"><span class="dnum">D11</span><span class="ddate">10/8 周四</span></div>
     <p class="route">Genève → Beijing</p>
     <p class="stay">返程日</p>
@@ -376,5 +381,38 @@
   </div>
 
 </div>
+
+<script>
+(function(){
+  var nav=document.querySelector('.daynav'); if(!nav) return;
+  var links=[].slice.call(nav.querySelectorAll('a'));
+  var days=[].slice.call(document.querySelectorAll('.day'));
+  if(!links.length||!days.length) return;
+  function setActive(id,fromClick){
+    links.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+id);});
+    var a=nav.querySelector('a[href="#'+id+'"]');
+    if(a){
+      var left=a.offsetLeft-(nav.clientWidth-a.offsetWidth)/2;
+      nav.scrollTo({left:left<0?0:left,behavior:'smooth'});
+    }
+  }
+  links.forEach(function(a){a.addEventListener('click',function(){setActive(a.getAttribute('href').slice(1),true);});});
+  var ticking=false;
+  function spy(){
+    if(ticking) return; ticking=true;
+    requestAnimationFrame(function(){
+      var line=nav.offsetHeight+24, cur=days[0].id;
+      for(var i=0;i<days.length;i++){
+        if(days[i].getBoundingClientRect().top<=line) cur=days[i].id;
+      }
+      setActive(cur);
+      ticking=false;
+    });
+  }
+  window.addEventListener('scroll',spy,{passive:true});
+  window.addEventListener('resize',spy);
+  spy();
+})();
+</script>
 </body>
 </html>
