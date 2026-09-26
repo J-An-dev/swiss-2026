@@ -11,7 +11,7 @@
     --line:#dde6ea;--pale:#f4f8f9;
   }
   *{box-sizing:border-box}
-  html{-webkit-text-size-adjust:100%}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
   body{
     margin:0;background:#eef3f5;color:var(--ink);
     font-family:"PingFang SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;
@@ -34,13 +34,30 @@
     border-left:4px solid var(--gold);padding-left:10px;
   }
 
+  /* ---------- date quick-nav ---------- */
+  .daynav{
+    display:flex;gap:8px;overflow-x:auto;padding:4px 0 12px;
+    scrollbar-width:none;-webkit-overflow-scrolling:touch;
+  }
+  .daynav::-webkit-scrollbar{display:none}
+  .daynav a{
+    flex:0 0 auto;text-decoration:none;
+    font-size:14.5px;font-weight:600;color:var(--navy);
+    background:#fff;border:1px solid var(--line);border-radius:999px;
+    padding:6px 13px;line-height:1.4;white-space:nowrap;
+  }
+  .daynav a:active{background:var(--pale)}
+  .daynav a .n{color:var(--gold);font-weight:700;margin-right:4px}
+
   /* ---------- day card ---------- */
   .day{
     background:#fff;border:1px solid var(--line);border-radius:14px;
     padding:16px 16px 6px;margin-bottom:16px;
     box-shadow:0 1px 4px rgba(20,59,87,.05);
+    scroll-margin-top:20px;
   }
   .day.head-line{border-color:var(--gold);border-width:2px}
+  .day:target{border-color:var(--gold);box-shadow:0 0 0 3px rgba(177,123,38,.18)}
   .day-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
   .dnum{
     font-size:15px;font-weight:700;color:#fff;background:var(--navy);
@@ -122,8 +139,22 @@
 
   <h2>每日行程</h2>
 
+  <nav class="daynav" aria-label="按日期快速跳转">
+    <a href="#d1"><span class="n">D1</span>9/28</a>
+    <a href="#d2"><span class="n">D2</span>9/29</a>
+    <a href="#d3"><span class="n">D3</span>9/30</a>
+    <a href="#d4"><span class="n">D4</span>10/1</a>
+    <a href="#d5"><span class="n">D5</span>10/2</a>
+    <a href="#d6"><span class="n">D6</span>10/3</a>
+    <a href="#d7"><span class="n">D7</span>10/4</a>
+    <a href="#d8"><span class="n">D8</span>10/5</a>
+    <a href="#d9"><span class="n">D9</span>10/6</a>
+    <a href="#d10"><span class="n">D10</span>10/7</a>
+    <a href="#d11"><span class="n">D11</span>10/8</a>
+  </nav>
+
   <!-- D1 -->
-  <article class="day">
+  <article class="day" id="d1">
     <div class="day-head"><span class="dnum">D1</span><span class="ddate">9/28 周一</span></div>
     <p class="route">日内瓦机场 → Visp → Zermatt</p>
     <p class="stay"><strong>22 Summits Boutique Hotel</strong> · Zermatt</p>
@@ -135,7 +166,7 @@
   </article>
 
   <!-- D2 -->
-  <article class="day">
+  <article class="day" id="d2">
     <div class="day-head"><span class="dnum">D2</span><span class="ddate">9/29 周二</span></div>
     <p class="route">Gornergrat · Riffelsee → Spiez</p>
     <p class="stay"><strong>Hotel Eden Spiez</strong> · Spiez</p>
@@ -154,7 +185,7 @@
   </article>
 
   <!-- D3 -->
-  <article class="day">
+  <article class="day" id="d3">
     <div class="day-head"><span class="dnum">D3</span><span class="ddate">9/30 周三</span></div>
     <p class="route">Spiez → Grindelwald</p>
     <p class="stay"><strong>Hotel Belvedere Grindelwald</strong> · Grindelwald · 1/2</p>
@@ -173,7 +204,7 @@
   </article>
 
   <!-- D4 -->
-  <article class="day">
+  <article class="day" id="d4">
     <div class="day-head"><span class="dnum">D4</span><span class="ddate">10/1 周四</span></div>
     <p class="route">Jungfraujoch · Lauterbrunnen</p>
     <p class="stay"><strong>Hotel Belvedere Grindelwald</strong> · Grindelwald · 2/2</p>
@@ -185,7 +216,7 @@
   </article>
 
   <!-- D5 -->
-  <article class="day">
+  <article class="day" id="d5">
     <div class="day-head"><span class="dnum">D5</span><span class="ddate">10/2 周五</span></div>
     <p class="route">First · Bachalpsee → Luzern</p>
     <p class="stay"><strong>Mandarin Oriental Palace Luzern</strong> · Luzern · 1/2</p>
@@ -204,7 +235,7 @@
   </article>
 
   <!-- D6 -->
-  <article class="day">
+  <article class="day" id="d6">
     <div class="day-head"><span class="dnum">D6</span><span class="ddate">10/3 周六</span></div>
     <p class="route">Luzern → Rigi → Luzern｜宽松日</p>
     <p class="stay"><strong>Mandarin Oriental Palace Luzern</strong> · Luzern · 2/2</p>
@@ -223,7 +254,7 @@
   </article>
 
   <!-- D7 -->
-  <article class="day">
+  <article class="day" id="d7">
     <div class="day-head"><span class="dnum">D7</span><span class="ddate">10/4 周日</span></div>
     <p class="route">Luzern → Zürich → Chur → Ilanz → Vals</p>
     <p class="stay"><strong>7132 House of Architects</strong> · Vals</p>
@@ -245,7 +276,7 @@
   </article>
 
   <!-- D8 -->
-  <article class="day">
+  <article class="day" id="d8">
     <div class="day-head"><span class="dnum">D8</span><span class="ddate">10/5 周一</span></div>
     <p class="route">Vals → Zürich · ETH</p>
     <p class="stay"><strong>Zurich Marriott Hotel</strong> · Zürich</p>
@@ -265,7 +296,7 @@
   </article>
 
   <!-- D9 -->
-  <article class="day">
+  <article class="day" id="d9">
     <div class="day-head"><span class="dnum">D9</span><span class="ddate">10/6 周二</span></div>
     <p class="route">Zürich → Basel · Vitra Campus</p>
     <p class="stay"><strong>Basel Marriott Hotel</strong> · Basel</p>
@@ -285,7 +316,7 @@
   </article>
 
   <!-- D10 -->
-  <article class="day">
+  <article class="day" id="d10">
     <div class="day-head"><span class="dnum">D10</span><span class="ddate">10/7 周三</span></div>
     <p class="route">Fondation Beyeler → Bern → Genève</p>
     <p class="stay"><strong>Geneva Marriott Hotel</strong> · Genève</p>
@@ -306,7 +337,7 @@
   </article>
 
   <!-- D11 -->
-  <article class="day head-line">
+  <article class="day head-line" id="d11">
     <div class="day-head"><span class="dnum">D11</span><span class="ddate">10/8 周四</span></div>
     <p class="route">Genève → Beijing</p>
     <p class="stay">返程日</p>
