@@ -401,7 +401,7 @@
   function spy(){
     if(ticking) return; ticking=true;
     requestAnimationFrame(function(){
-      var line=nav.offsetHeight+24, cur=days[0].id;
+      var line=window.innerHeight*2/3, cur=days[0].id;
       for(var i=0;i<days.length;i++){
         if(days[i].getBoundingClientRect().top<=line) cur=days[i].id;
       }
