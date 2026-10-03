@@ -112,6 +112,19 @@
     line-height:1.72;
   }
 
+  /* ---------- timeline (collapsible) ---------- */
+  .tl{list-style:none;margin:6px 0 2px;padding:0}
+  .tl li{position:relative;padding:9px 0 9px 22px;border-bottom:1px dashed #d3e0e5}
+  .tl li:last-child{border-bottom:0}
+  .tl li::before{content:"";position:absolute;left:4px;top:17px;width:8px;height:8px;border-radius:50%;background:var(--gold)}
+  .tl li::after{content:"";position:absolute;left:7.5px;top:25px;bottom:-9px;width:1px;background:#e2d6bd}
+  .tl li:last-child::after{display:none}
+  .tl time{font-size:15px;font-weight:700;color:var(--gold);font-variant-numeric:tabular-nums;margin-right:8px}
+  .tl .seg{font-size:15.5px;color:#2c3f4a}
+  .tl .seg b{color:var(--navy);font-weight:700}
+  .tl .meta{display:block;margin-top:2px;font-size:13.5px;color:var(--muted);line-height:1.6}
+  .tl .meta b{color:var(--navy);font-weight:700}
+
   /* ---------- info blocks ---------- */
   .info{
     background:#fff;border:1px solid var(--line);border-radius:14px;
@@ -266,15 +279,19 @@
         <li>14:49 Arth-Goldau → <span class="arr">15:21 Luzern</span>（IR）</li>
       </ul>
     </div>
-<div class="transport">
-      <span class="label">可选 Weggis 线（天气好时）</span>
-      <ul>
-        <li>14:00 Rigi Kulm → 14:13 Rigi Kaltbad（齿轨）</li>
-        <li>14:40 Rigi Kaltbad（Luftseilbahn 缆车）→ 14:50 Weggis</li>
-        <li>14:54 Weggis, Seilbahn（9 路公交）→ 14:58 Weggis, Schiffstation</li>
-        <li>15:05 Weggis → <span class="arr">15:47 Luzern Bahnhofquai</span>（SGV 湖船）</li>
-      </ul>
-    </div>
+<details class="wg">
+      <summary>可选 Weggis 线（天气好时）</summary>
+      <div class="body">
+        <ol class="tl">
+          <li><time>14:00</time><span class="seg"><b>Rigi Kulm</b> 乘齿轨下山</span><span class="meta">→ 14:13 Rigi Kaltbad｜13 分钟</span></li>
+          <li><time>14:13</time><span class="seg">Kaltbad 齿轨站步行约 5 分至 <b>Luftseilbahn 缆车站</b></span><span class="meta">跟着 Seilbahn 指引；齿轨站与缆车站不在一处</span></li>
+          <li><time>14:40</time><span class="seg"><b>Luftseilbahn 缆车</b>下行至 Weggis</span><span class="meta">→ 14:50 Weggis｜10 分钟</span></li>
+          <li><time>14:54</time><span class="seg">9 路公交 Weggis, Seilbahn → Weggis, Schiffstation</span><span class="meta">→ 14:58 码头｜步行约 10 分钟亦可</span></li>
+          <li><time>15:05</time><span class="seg"><b>SGV 湖船</b>返回 Luzern</span><span class="meta">→ <b>15:47 Luzern Bahnhofquai</b>｜42 分钟，下船即 Luzern 火车站</span></li>
+        </ol>
+        <p style="margin:10px 0 0;font-size:14.5px;color:var(--muted);line-height:1.65">比默认 Arth-Goldau 线晚约 26 分钟回城，多出缆车与湖景。Kaltbad–Weggis 缆车 10 月初为季节运营，出发前在山顶或 Vitznau 确认当天末班；若停运则退回默认线。</p>
+      </div>
+    </details>
         <details>
       <summary>执行提示</summary>
       <div class="body">约 09:45 从酒店步行至 Luzern Bahnhofquai 1 号栈桥；想更早可搭 09:12 船（10:09 到 Vitznau）。山顶想多待可选下一班 14:48 齿轨 → 15:35 Arth-Goldau → 15:49 IR → 16:21 Luzern。Weggis 线：Kulm 齿轨至 Rigi Kaltbad，步行约 5 分转 Luftseilbahn 缆车下至 Weggis，再步行/公交至码头乘湖船回城，湖景更美；缆车 10 月初为季节运营，出发前在山顶或 Vitznau 确认当天末班。STP 覆盖船、两侧齿轨与 Kaltbad–Weggis 缆车。</div>
